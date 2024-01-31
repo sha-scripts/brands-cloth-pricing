@@ -1,0 +1,60 @@
+What is the average price of items in each category?
+ 
+SELECT Category, AVG(Price) AS AveragePrice
+FROM clothingprices
+GROUP BY Category;
+
+Which brand has the highest-priced item, and what is its price?
+ 
+SELECT Brand, MAX(Price) AS HighestPrice
+FROM clothingprices;
+
+What is the total revenue generated from sales of each brand?
+ 
+SELECT Brand, SUM(Price) AS TotalRevenue
+FROM clothingprices
+GROUP BY Brand;
+
+How does the average price of items vary by material?
+ 
+SELECT Material, AVG(Price) AS AveragePrice
+FROM clothingprices
+GROUP BY Material;
+
+What is the average price of items in each size category?
+ 
+SELECT Size, AVG(Price) AS AveragePrice
+FROM clothingprices
+GROUP BY Size;
+
+Which category has the highest average price, and what is it?
+ 
+SELECT Category, AVG(Price) AS AveragePrice
+FROM clothingprices
+GROUP BY Category
+ORDER BY AveragePrice DESC
+LIMIT 1;
+
+How do the prices of items vary by color?
+ 
+SELECT Color, MIN(Price) AS MinPrice, MAX(Price) AS MaxPrice
+FROM clothingprices
+GROUP BY Color;
+
+What is the total revenue generated from sales of items in each color?
+ 
+SELECT Color, SUM(Price) AS TotalRevenue
+FROM clothingprices
+GROUP BY Color;
+
+How does the price distribution of items differ between brands?
+ 
+SELECT Brand, MIN(Price) AS MinPrice, MAX(Price) AS MaxPrice, AVG(Price) AS AveragePrice
+FROM clothingprices
+GROUP BY Brand;
+
+Is there a correlation between the price of items and their size or material?
+ 
+SELECT Size, Material, AVG(Price) AS AveragePrice
+FROM clothingprices
+GROUP BY Size, Material;
